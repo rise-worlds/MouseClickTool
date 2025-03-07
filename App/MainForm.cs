@@ -1,4 +1,5 @@
 using System.Globalization;
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 namespace MouseClickTool
@@ -19,6 +20,10 @@ namespace MouseClickTool
             {
                 hk.Items.Add($"F{i}");
             }
+            var version = Assembly.GetExecutingAssembly().GetName().Version;
+            var versionString = $"{version.Major}.{version.Minor}.{version.Build}";
+            this.Text = $"MouseClickTool v{versionString}";
+            this.HelpButton = true;
 
             fCfg = Path.Combine(Path.GetTempPath(), $"MouseClickTool.ini");
             if (File.Exists(fCfg))
