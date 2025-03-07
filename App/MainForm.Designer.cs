@@ -102,7 +102,8 @@ namespace MouseClickTool
             // 
             // pk
             // 
-            pk.Format = DateTimePickerFormat.Short;
+            pk.Format = DateTimePickerFormat.Custom;
+            pk.CustomFormat = "yyyy/MM/dd HH:mm:ss";
             pk.Location = new Point(128, 37);
             pk.Name = "pk";
             pk.ShowUpDown = true;
