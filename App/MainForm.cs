@@ -84,7 +84,12 @@ namespace MouseClickTool
             {
                 try
                 {
-                    System.Diagnostics.Process.Start(path);
+                    var psi = new System.Diagnostics.ProcessStartInfo
+                    {
+                        FileName = path,
+                        UseShellExecute = true,
+                    };
+                    System.Diagnostics.Process.Start(psi);
                 }
                 catch
                 {
