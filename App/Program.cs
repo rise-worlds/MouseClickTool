@@ -1,4 +1,6 @@
+using System;
 using System.Reflection;
+using System.Windows.Forms;
 
 [assembly: AssemblyTitle("MouseClickTool")]
 [assembly: AssemblyProduct("MouseClickTool")]
@@ -11,8 +13,12 @@ public static class Program
     [STAThread]
     public static void Main()
     {
+#if WINDOWS
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(true);
         Application.Run(new MouseClickTool.MainForm());
+#else
+        MessageBox.Show("This application requires Windows Vista or later.");
+#endif
     }
 }
